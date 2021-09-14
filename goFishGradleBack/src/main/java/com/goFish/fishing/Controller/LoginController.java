@@ -1,7 +1,10 @@
 package com.goFish.fishing.Controller;
 
+import com.goFish.fishing.Exceptions.UserAddError;
+import com.goFish.fishing.Service.Impl.LoginServiceImpl;
 import com.goFish.fishing.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +17,14 @@ public class LoginController {
     }
 
     public ResponseEntity addUser(String userName){
-        return null;
+        try{
+            loginService.addUser(userName);
+            return ResponseEntity.ok().build();
+        }
+        catch(UserAddError e){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
     }
+
+
 }

@@ -3,23 +3,21 @@ package com.goFish.fishing.Controller;
 import com.goFish.fishing.Model.GameDTO;
 import com.goFish.fishing.Model.Ping;
 import com.goFish.fishing.Model.Play;
-import com.goFish.fishing.Repo.GameRepo;
-import com.goFish.fishing.Service.GameService;
-import com.goFish.fishing.Service.LoginService;
+import com.goFish.fishing.Service.Impl.GameServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class GameController {
-    private GameService gameService;
+    private GameServiceImpl gameServiceImpl;
 
     @Autowired
-    public GameController(GameService gameService) {
-        this.gameService = gameService;
+    public GameController(GameServiceImpl gameServiceImpl) {
+        this.gameServiceImpl = gameServiceImpl;
     }
 
-    public ResponseEntity<GameDTO> Ping(Ping ping)
+    public ResponseEntity<GameDTO> ping(Ping ping)
     {
         return null;
     }
